@@ -5,5 +5,11 @@ language: generic
 services:
   - docker
 
+os:
+  - linux
+
 before_install:
   - docker build -t ojaspatharkar/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run CI=true ojaspatharkar/docker-react npm run test
